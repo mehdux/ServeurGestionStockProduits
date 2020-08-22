@@ -20,10 +20,6 @@ public class UserService implements ICrudService<User, Long>{
 	public List<User> getAll() {
 		return userRepository.findAll();
 	}
-	
-	public Optional<User> getUser(Long id) {
-		return userRepository.findById(id);
-	}
 
 	public void add(User user) {
 		userRepository.save(user);		

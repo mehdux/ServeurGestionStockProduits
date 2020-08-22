@@ -11,12 +11,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.entity.Produit;
-import com.example.demo.service.ICrudService;
-import com.example.demo.service.IProduitService;
+import com.example.demo.service.ProduitService;
 
 @RestController
 @RequestMapping("/api/produit")
@@ -25,25 +23,25 @@ import com.example.demo.service.IProduitService;
 public class ProduitController {
 	
 	@Autowired
-	private IProduitService produitService;
+	private ProduitService produitService;
 	
 	@GetMapping
 	public List<Produit> getProduit(){
-		return produitService.getProduits();		
+		return produitService.getAll();		
 	}
 	
 	@PostMapping
 	public void addProduit(@RequestBody Produit produit) {
-		produitService.addProduit(produit);
+		produitService.add(produit);
 	}
 	
 	@PutMapping
 	public void updateProduit(@RequestBody Produit produit) {
-		produitService.updateProduit(produit);
+		produitService.update(produit);
 	}
 	
 	@DeleteMapping("/{id}")
 	public void deleteProduit(@PathVariable Long id) {
-		produitService.deleteProduit(id);
+		produitService.delete(id);
 	}
 }

@@ -9,8 +9,6 @@ public interface ICrudService<T, ID> {
 	
 	List<T> getAll();
 	
-	Optional<User> getUser(ID id);
-	
 	void add(T entity);
 	
 	void update(T entity);
