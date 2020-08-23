@@ -16,7 +16,7 @@ import com.example.demo.entity.User;
 import com.example.demo.service.ICrudService;
 
 @RestController
-@RequestMapping(name="/crud_user")
+@RequestMapping("/crud_user")
 public class CrudUserController {
 	@Autowired
 	private ICrudService<User, Long> userService;

@@ -16,8 +16,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	private UserDetailsService userDetailsService;
 
 	protected void configure(HttpSecurity http) throws Exception {
-		http.httpBasic().and().authorizeRequests().antMatchers("/api/**").hasRole("USER").antMatchers("/**")
-				.hasRole("ADMIN").and().csrf().disable().headers().frameOptions().disable();
+		http.httpBasic()
+				.and()
+					.authorizeRequests()
+						.antMatchers("/api/**")
+							.hasRole("USER")
+					.antMatchers("/**")
+						.hasRole("ADMIN").and()
+							.csrf().disable().headers()
+								.frameOptions().disable();
 	}
 
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
